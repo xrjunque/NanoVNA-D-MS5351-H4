@@ -1,2 +1,3 @@
 NanoVNA H4 MS5351
 =================
+This repository contains NanoVNA-D firmware version 1.2.52 for the NanoVNA H4. A precompiled firmware image (H4.bin) is available in the /firmware folder for users who prefer to update their device without rebuilding the project. The only source code modification made before compilation was changing #define SWEEP_POINTS_MAX 401 to #define SWEEP_POINTS_MAX 351 in nanovna.h. This change was necessary because my NanoVNA H4 (MS5351 variant), originally running firmware v29, showed trace anomalies after upgrading to firmware v46 and later v51. The issue appears to be caused by excessive RAM usage, and reducing the maximum number of sweep points eliminates the problem while preserving normal operation.
