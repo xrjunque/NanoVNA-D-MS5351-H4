@@ -126,7 +126,7 @@ static uint16_t p_sweep = 0;
 float measured[2][SWEEP_POINTS_MAX][2];
 
 #undef VERSION
-#define VERSION "1.2.53"
+#define VERSION "1.2.54"
 
 // Version text, displayed in Config->Version menu, also send by info command
 const char *info_about[]={
