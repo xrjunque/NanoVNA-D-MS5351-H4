@@ -136,7 +136,7 @@
 #define USE_VARIABLE_OFFSET
 
 // Maximum sweep point count (limit by flash and RAM size)
-#define SWEEP_POINTS_MAX         351
+#define SWEEP_POINTS_MAX         401
 
 #define AUDIO_ADC_FREQ_K1        384
 #else

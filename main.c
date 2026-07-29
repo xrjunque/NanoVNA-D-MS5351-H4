@@ -35,6 +35,7 @@
 // enable this need reduce spi_buffer size, by default shell run in main thread
 // #define VNA_SHELL_THREAD
 
+
 static BaseSequentialStream *shell_stream = 0;
 threads_queue_t shell_thread;
 
@@ -3320,7 +3321,7 @@ int main(void)
  */
   halInit();
   chSysInit();
-
+  
 /*
  * Init used hardware
  */

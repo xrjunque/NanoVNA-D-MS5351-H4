@@ -462,8 +462,8 @@ si5351_get_harmonic_lvl(uint32_t freq){
 #define FREQ_CHANNEL         1
 #define AUDIO_CODEC_CHANNEL  2
 
-int
-si5351_set_frequency(uint32_t freq, uint8_t drive_strength)
+
+int si5351_set_frequency(uint32_t freq, uint8_t drive_strength)
 {
   uint8_t band;
   int delay = 0;
@@ -471,6 +471,7 @@ si5351_set_frequency(uint32_t freq, uint8_t drive_strength)
   uint32_t rdiv = 0;
   uint32_t fdiv, pll_n;
   uint32_t ofreq = freq + IF_OFFSET;
+  bool power_changed = false;
 
   // Select optimal band for prepared freq
   if (freq < band_s[1].freq) {
@@ -496,9 +497,10 @@ si5351_set_frequency(uint32_t freq, uint8_t drive_strength)
   if (current_power != drive_strength) {
     si5351_reset_cache();
     current_power = drive_strength;
+    power_changed = true;
   }
 
-  if (freq == current_freq)
+  if (freq == current_freq && !power_changed)
     return DELAY_CHANNEL_CHANGE;
 
   if (current_band != band) {
